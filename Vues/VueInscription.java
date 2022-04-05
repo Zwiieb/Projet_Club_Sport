@@ -185,11 +185,17 @@ public class VueInscription extends javax.swing.JFrame {
 
     private void ConfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfButtonActionPerformed
     	
-    	setVisible(false); 
-    	VueLogin s= new VueLogin();
-        s.setVisible(true); 
-        Controleur.listPers.add(new Personne(nomField.getText(),preField.getText(),adrField.getText(),adrMField.getText(),telField.getText(),eleField.getText(),nivField1.getText(),mdpField.getText()));
-        
+    	// test si un des champs est vide
+        if(nomField.getText().length() != 0 && preField.getText().length()!=0 && adrField.getText().length()!=0 && adrMField.getText().length()!=0 && telField.getText().length()!=0 && eleField.getText().length()!=0 && nivField1.getText().length()!=0 && mdpField.getText().length()!=0) {
+        	Controleur.listPers.add(new Personne(nomField.getText(),preField.getText(),adrField.getText(),adrMField.getText(),telField.getText(),eleField.getText(),nivField1.getText(),mdpField.getText()));
+        	// affiche la prochaine fenetre
+        	setVisible(false); 
+        	VueLogin s= new VueLogin();
+            s.setVisible(true); 
+        }else {
+        	// affiche un message d'erreur
+        	JOptionPane.showMessageDialog(null, "Veuillez entrer tous les champs", "Erreur", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     private void adrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adrFieldActionPerformed
