@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vues;
+import javax.swing.JOptionPane;
+
+import Controleurs.Controleur;
 import Model.Facture;
 
 /**
@@ -38,10 +41,10 @@ public class VueSport extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Natation", "15 Â£"},
-                {"Dance", "15Â£"},
-                {"Fitness", "20Â£"},
-                {"FootBall", "10Â£"}
+                {"Natation", "15 €"},
+                {"Dance", "15 €"},
+                {"Fitness", "20 €"},
+                {"FootBall", "10 €"}
             },
             new String [] {
                 "Sport", "Prix"
@@ -49,7 +52,7 @@ public class VueSport extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jComboSport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sport", "Natation", "Fitness", "Dance", "FootBall" }));
+        jComboSport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sport", "Natation", "Dance", "Fitness", "FootBall" }));
         jComboSport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboSportActionPerformed(evt);
@@ -125,9 +128,29 @@ public class VueSport extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboSportActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    	setVisible(false);
-    	VueMairie l = new VueMairie();
-        l.setVisible(true);
+    	if(jComboSport.getSelectedItem().equals("Sport")) {
+    		JOptionPane.showMessageDialog(null, "Veuillez choisir un sport", "Erreur", JOptionPane.WARNING_MESSAGE);
+    	}else {
+    		switch ((String)jComboSport.getSelectedItem()) {						
+				case "Natation":
+					Controleur.prixSport = (float)15;
+					break;
+				case"Dance":
+					Controleur.prixSport = (float)15;
+					break;
+				case"Fitness":
+					Controleur.prixSport = (float)20;
+					break;
+				case"FootBall":
+					Controleur.prixSport = (float)10;
+					break;
+		}
+    		System.out.println(Controleur.prixSport);
+	    	/*setVisible(false);
+	    	VueMairie l = new VueMairie();
+	        l.setVisible(true);
+	        */
+    	}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
