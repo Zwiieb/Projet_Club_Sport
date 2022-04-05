@@ -10,5 +10,33 @@ package Model;
  * @author wsi
  */
 public class Sport {
-    
+	
+	private	String nom;
+	private	float prix;
+	private String prof;
+	
+	
+	public Sport(String nom, float prix, String prof) {
+		this.nom = nom;
+		this.prix = prix;
+		this.prof = prof;
+	}
+
+
+	public String getNom() {
+		return nom;
+	}
+
+
+	public float getPrix() {
+		return prix;
+	}
+
+
+	public String getProf() {
+		return prof;
+	}
+	
+	
+	
 }

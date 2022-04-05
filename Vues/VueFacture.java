@@ -4,16 +4,18 @@
  */
 package Vues;
 
+import Controleurs.Controleur;
+
 /**
  *
  * @author lucas
  */
 public class VueFacture extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
-    public VueFacture() {
+	Controleur controleur;
+	
+    public VueFacture(Controleur controleur) {
+    	this.controleur = controleur;
+    	this.controleur.getListePages().put("VueFacture",this);
         initComponents();
     }
 
@@ -136,30 +138,18 @@ public class VueFacture extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    	setVisible(false);
-    	VueSport l= new VueSport();
-
-        l.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    	controleur.lancement_sport(this);
+    }
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-        //ici il va prendre c qu'on a calculer dans calculer Red et l'affiche
-    }//GEN-LAST:event_jTextField2ActionPerformed
+  
+    }
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+    }
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -176,15 +166,6 @@ public class VueFacture extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VueFacture.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VueFacture().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

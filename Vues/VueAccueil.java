@@ -7,15 +7,20 @@ package Vues;
 
 import java.awt.Window;
 
+import Controleurs.Controleur;
+
 /**
  *
  * @author wsi
  */
 public class VueAccueil extends javax.swing.JFrame {
+	private Controleur controleur;
     /**
      * Creates new form NewAcceuil
      */
     public VueAccueil() {
+    	controleur = new Controleur();
+		this.controleur.getListePages().put("VueAccueil",this);
         initComponents();
     }
 
@@ -116,30 +121,22 @@ public class VueAccueil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    	setVisible(false);
-    	VueInscription g= new VueInscription();
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+    	// lancement de la page d'inscription
+    	this.controleur.lancement_inscription(this);
 
-        g.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4Action
+    }
 
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    	setVisible(false);
-    	VueLogin l= new VueLogin();
-
-        l.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	// lancement de la page de connexion
+    	this.controleur.lancement_connexion(this);
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -161,7 +158,7 @@ public class VueAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VueAccueil().setVisible(true);
+            	new VueAccueil().setVisible(true);
             }
         });
     }

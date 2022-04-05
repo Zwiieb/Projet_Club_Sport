@@ -10,21 +10,36 @@ package Model;
  * @author wsi
  */
 public class Facture {
-	
-	// private Sport sport
-	private int montant;
-	/*
-	public Facture(int prix) {
-		this.prix = prix;
-	}
-    
-	
-	public int calcul() {
-		return this.prix;
-	}
-	
-	public int get_prix() {
-		return this.prix;
-	}
-	*/
+
+    private int montant;
+    private String paiement;
+
+
+    public Facture() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    public Facture(int montant) {
+        super();
+        this.montant = montant;
+    }
+    public int getMontant() {
+        return montant;
+    }
+    public String getPaiement() {
+        return paiement;
+    }
+    public void setPaiement(String paiement) {
+        this.paiement = paiement;
+    }
+    public Facture(String paiement) {
+        super();
+        this.paiement = paiement;
+    }
+
+    public void setMontant(int montant) {
+        this.montant = montant;
+    }
+
+
 }
