@@ -3,20 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vues;
+
 import javax.swing.JOptionPane;
 
 import Controleurs.Controleur;
 import Model.Accueil;
-import Model.Facture;
-import Model.Personne;
-import Model.Sport;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Vector;
 
 /**
- *
  * @author lucas
  */
 public class VueSport extends javax.swing.JFrame {
@@ -24,7 +20,7 @@ public class VueSport extends javax.swing.JFrame {
 
     public VueSport(Controleur controleur) {
         this.controleur = controleur;
-        this.controleur.getListePages().put("VueSport",this);
+        this.controleur.getListePages().put("VueSport", this);
         initComponents();
     }
 
@@ -42,25 +38,30 @@ public class VueSport extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Object obj = new Object[][]{};
         // liste des sports
-        Vector<String> listeSports = new Vector <String>();
+        Vector<String> listeSports = new Vector<String>();
         listeSports.add("Sport");
 
-        // ajout de tous les sport dans la liste
+        // ajout de tous les sport dans la Combobox
         for (String sport : Accueil.getListeSports().keySet()) {
             listeSports.add(Accueil.getListeSports().get(sport).getNom());
+            //tabSport = {tabSport,
+            //       {Accueil.getListeSports().get(sport).getNom(),Accueil.getListeSports().get(sport).getPrix()}};
         }
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        // ajout de tous les sports dans la la Jtable
+        String[][] tabSports = new String[listeSports.size()][2];
+        int i = 0;
+        for (String key : Accueil.getListeSports().keySet()) {
+            tabSports[i][0] = Accueil.getListeSports().get(key).getNom();
+            tabSports[i][1] = String.valueOf(Accueil.getListeSports().get(key).getPrix());
+            i++;
+        }
+        ArrayList<String> collection = new ArrayList<>();
 
-                new Object [][] {
-                        {"Natation", "15 £"},
-                        {"Dance", "15£"},
-                        {"Fitness", "20£"},
-                        {"FootBall", "10£"}
-                },
-                new String [] {
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                tabSports,
+                new String[]{
                         "Sport", "Prix"
                 }
         ));
@@ -150,10 +151,10 @@ public class VueSport extends javax.swing.JFrame {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
 
-        if(jComboSport.getSelectedItem().equals("Sport")) {
+        if (jComboSport.getSelectedItem().equals("Sport")) {
             JOptionPane.showMessageDialog(null, "Veuillez choisir un sport", "Erreur", JOptionPane.WARNING_MESSAGE);
-        }else {
-            this.controleur.ajouter_sport(this,jComboSport.getSelectedItem().toString());
+        } else {
+            this.controleur.ajouter_sport(this, jComboSport.getSelectedItem().toString());
         }
 
 
