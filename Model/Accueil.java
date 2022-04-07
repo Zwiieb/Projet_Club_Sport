@@ -25,6 +25,7 @@ public class Accueil {
         new Sport("Dance", 15, " ProfB");
         new Sport("Fitness", 20, " ProfF");
         new Sport("FootBall", 10, " ProfN");
+        new Sport("Musculation", 30, " ProfM");
         Personne pers =  new Personne("a","a","a","a","a","a","a","a")  ;
                  Mairie.getListPers().add(pers)    ;
          /*
