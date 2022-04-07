@@ -15,8 +15,31 @@ public class Mairie {
 	
 	// liste des personnes inscrites
 	public static Vector<Personne> listPers = new Vector <Personne>();
-	
-	
+
+	public static float simulationFamille(){
+		int couple = (int)(Math.random()*1);
+		int nbEnfants = (int)((Math.random()*5));
+		if(couple == 0){
+			return calculQuotientF(false,nbEnfants);
+		}else{
+			return calculQuotientF(true,nbEnfants);
+		}
+
+	}
+	public static float calculQuotientF(boolean couple, int nbEnfants){
+
+		int nb;
+		if (couple){
+			nb = 2;
+		}else{
+			nb = 1;
+		}
+		if (nbEnfants == 1) {
+			return nb+0.5F;
+		}else{
+			return  nb+nbEnfants;
+		}
+	}
 
 
 	public static Vector<Personne> getListPers() {

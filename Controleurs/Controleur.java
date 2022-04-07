@@ -19,7 +19,7 @@ import Vues.VueSport;
 
 public class Controleur {
 
-
+	private Personne PersonneConnectee;
 	private Mairie mairie;
 	Map<String, JFrame> listePages = new HashMap<String, JFrame>();
 	
@@ -53,6 +53,7 @@ public class Controleur {
 				persExist=true;
 				if(pers.getMdp().equals(mdp)) {
 					log_bon = true;
+					this.PersonneConnectee = pers;
 				}
 			}
 		}
@@ -75,7 +76,9 @@ public class Controleur {
 		
 	}
 
-	public void Inscription(VueInscription vueInscription,String nom,String prenom,String adresse,String mail,String tel,String eleve,String niveau, String mdp) {
+
+
+	public void Inscription(VueInscription vueInscription, String nom, String prenom, String adresse, String mail, String tel, String eleve, String niveau, String mdp) {
 		
 		 if(nom.length() != 0 && prenom.length()!=0 && adresse.length()!=0 && mail.length()!=0 && tel.length()!=0 && eleve.length()!=0 && niveau.length()!=0 && mdp.length()!=0) {
 	        	Mairie.listPers.add(new Personne(nom,prenom,adresse,mail,tel,eleve,niveau,mdp));
@@ -90,7 +93,6 @@ public class Controleur {
 		
 	}
 
-	
 	public void retourVers(JFrame actuel,String cible,String name) {
 		// rend invisible la fenêtre actuelle et ouvre celle voulue
 
@@ -103,14 +105,6 @@ public class Controleur {
 
 	public Map<String, JFrame> getListePages() {
 		return listePages;
-	}
-
-	public void lancement_sport(VueFacture vueFacture) {
-		// rend invisible la fenêtre actuelle et ouvre celle voulue
-		vueFacture.setVisible(false);
-    	VueSport l= new VueSport(this);
-        l.setVisible(true);
-		
 	}
 
 	public void lancement_facture(VueMairie vueMairie) {
@@ -130,7 +124,7 @@ public class Controleur {
 		Sport sport = Accueil.getListeSports().get(nomSport);
 
 		// on entre le prix du sport dans une zone de texte de la page facture
-		VueFacture.getMontantField().setText(String.valueOf(sport.getPrix()));
+		VueFacture.getMontantField().setText(String.valueOf(sport.getPrix()/this.PersonneConnectee.getQuotientF()));
 
 		// rend invisible la fenêtre actuelle et ouvre celle voulue
 		VueSport.setVisible(false);
@@ -149,5 +143,8 @@ public class Controleur {
 		}else {
 			JOptionPane.showMessageDialog(null, "veuillez séléctionner 1 choix de paiement ", "Erreur", JOptionPane.WARNING_MESSAGE);
 		}
+	}
+	public Mairie getMairie() {
+		return mairie;
 	}
 }
