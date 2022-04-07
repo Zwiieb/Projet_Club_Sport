@@ -5,10 +5,6 @@
  */
 package Model;
 
-/**
- *
- * @author wsi
- */
 public class Login {
     
 }

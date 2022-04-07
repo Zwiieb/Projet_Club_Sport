@@ -8,6 +8,7 @@ package Vues;
 import java.awt.Window;
 
 import Controleurs.Controleur;
+import Model.Accueil;
 
 /**
  *
@@ -157,6 +158,8 @@ public class VueAccueil extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            Accueil accueil = new Accueil();
+
             public void run() {
             	new VueAccueil().setVisible(true);
             }

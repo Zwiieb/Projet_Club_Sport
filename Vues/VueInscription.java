@@ -204,7 +204,7 @@ public class VueInscription extends javax.swing.JFrame {
     }//GEN-LAST:event_telFieldActionPerformed
 
     private void RetourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourButtonActionPerformed
-    	controleur.retourAcceuil(this);
+    	controleur.retourVers(this,"VueAccueil","VueInscription");
     }
 
     private void eleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleFieldActionPerformed

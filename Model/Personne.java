@@ -5,23 +5,18 @@
  */
 package Model;
 
-import java.util.Vector;
-
-
-
 public class Personne {
-    public String nom;
-    public String prenom;
-    public String adresse;
-    public String adresse_mail;
-    public String tel;
-    public String prenom_eleve;
-    public String niveau;
-    public String mdp;
+    private String nom;
+    private String prenom;
+    private String adresse;
+    private String adresse_mail;
+    private String tel;
+    private String prenom_eleve;
+    private String niveau;
+    private String mdp;
 
     public Personne(String nom, String prenom, String adresse, String adresse_mail, String tel, String prenom_eleve,
             String niveau, String mdp) {
-        super();
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;

@@ -1,16 +1,15 @@
 package Controleurs;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import Model.Accueil;
 import Model.Mairie;
 import Model.Personne;
-import Vues.VueAccueil;
+import Model.Sport;
 import Vues.VueFacture;
 import Vues.VueInscription;
 import Vues.VueLogin;
@@ -19,6 +18,8 @@ import Vues.VueSport;
 
 
 public class Controleur {
+
+
 	private Mairie mairie;
 	Map<String, JFrame> listePages = new HashMap<String, JFrame>();
 	
@@ -27,17 +28,16 @@ public class Controleur {
 		this.listePages = new HashMap<>();
 	}
 
-	public void methode(String Sport) throws Exception {
-		float prix = mairie.get_prix_sport(Sport);
-	}
 	
 	public void lancement_inscription(JFrame actuel) {
+		// rend invisible la a fenêt actuelle et ouvre celle voulue
     	actuel.setVisible(false);
     	VueInscription g= new VueInscription(this);
         g.setVisible(true);
 	}
 
 	public void lancement_connexion(JFrame actuel) {
+		// rend invisible la a fenêt actuelle et ouvre celle voulue
 		actuel.setVisible(false);
     	VueLogin l= new VueLogin(this);
         l.setVisible(true);    
@@ -47,16 +47,17 @@ public class Controleur {
 		boolean persExist = false;
     	boolean log_bon = false;
     	for (var pers : Mairie.getListPers()){
-			System.out.println(pers.nom);
+			System.out.println(pers.getNom());
 			
-			if (pers.nom.equals(itemSelected)) {
+			if (pers.getNom().equals(itemSelected)) {
 				persExist=true;
-				if(pers.mdp.equals(mdp)) {
+				if(pers.getMdp().equals(mdp)) {
 					log_bon = true;
 				}
 			}
 		}
     	if(persExist && log_bon){
+			// rend invisible la a fenêt actuelle et ouvre celle voulue
 			actuel.setVisible(false);
         	VueSport l= new VueSport(this);
             l.setVisible(true);
@@ -78,7 +79,7 @@ public class Controleur {
 		
 		 if(nom.length() != 0 && prenom.length()!=0 && adresse.length()!=0 && mail.length()!=0 && tel.length()!=0 && eleve.length()!=0 && niveau.length()!=0 && mdp.length()!=0) {
 	        	Mairie.listPers.add(new Personne(nom,prenom,adresse,mail,tel,eleve,niveau,mdp));
-	        	// affiche la prochaine fenetre
+	        	// affiche la prochaine a fenêt
 	        	vueInscription.setVisible(false); 
 	        	VueLogin s= new VueLogin(this);
 	            s.setVisible(true); 
@@ -90,11 +91,14 @@ public class Controleur {
 	}
 
 	
-	public void retourAcceuil(JFrame actuel) {
+	public void retourVers(JFrame actuel,String cible,String name) {
+		// rend invisible la fenêtre actuelle et ouvre celle voulue
+
 		actuel.setVisible(false); 
-    	JFrame l= listePages.get("VueAccueil");
-        l.setVisible(true);  
-		
+    	JFrame l= listePages.get(cible);
+        l.setVisible(true);
+		listePages.remove(name);
+		System.out.println(listePages) ;
 	}
 
 	public Map<String, JFrame> getListePages() {
@@ -102,7 +106,7 @@ public class Controleur {
 	}
 
 	public void lancement_sport(VueFacture vueFacture) {
-
+		// rend invisible la fenêtre actuelle et ouvre celle voulue
 		vueFacture.setVisible(false);
     	VueSport l= new VueSport(this);
         l.setVisible(true);
@@ -110,11 +114,40 @@ public class Controleur {
 	}
 
 	public void lancement_facture(VueMairie vueMairie) {
+		// rend invisible la fenêtre actuelle et ouvre celle voulue
 		vueMairie.setVisible(false);
     	VueFacture g= new VueFacture(this);
         g.setVisible(true); 
 		
 	}
 
-	    
+
+	public void ajouter_sport(VueSport VueSport, String nomSport) {
+		// on crée la page facture
+		VueFacture vue= new VueFacture(this);
+
+		// on récupère le sport dans le dictionnaire
+		Sport sport = Accueil.getListeSports().get(nomSport);
+
+		// on entre le prix du sport dans une zone de texte de la page facture
+		VueFacture.getMontantField().setText(String.valueOf(sport.getPrix()));
+
+		// rend invisible la fenêtre actuelle et ouvre celle voulue
+		VueSport.setVisible(false);
+		vue.setVisible(true);
+
+
+
+	}
+
+
+	public void payer(VueFacture vueFacture) {
+
+
+		if (VueFacture.getjRadioButton3().isSelected() || VueFacture.getjRadioButton4().isSelected() ){
+			vueFacture.setVisible(false);
+		}else {
+			JOptionPane.showMessageDialog(null, "veuillez séléctionner 1 choix de paiement ", "Erreur", JOptionPane.WARNING_MESSAGE);
+		}
+	}
 }
