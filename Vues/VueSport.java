@@ -4,11 +4,10 @@
  */
 package Vues;
 
-import javax.swing.JOptionPane;
-
 import Controleurs.Controleur;
 import Model.Accueil;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -33,7 +32,6 @@ public class VueSport extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jComboSport = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,8 +43,6 @@ public class VueSport extends javax.swing.JFrame {
         // ajout de tous les sport dans la Combobox
         for (String sport : Accueil.getListeSports().keySet()) {
             listeSports.add(Accueil.getListeSports().get(sport).getNom());
-            //tabSport = {tabSport,
-            //       {Accueil.getListeSports().get(sport).getNom(),Accueil.getListeSports().get(sport).getPrix()}};
         }
 
         // ajout de tous les sports dans la la Jtable
@@ -58,13 +54,13 @@ public class VueSport extends javax.swing.JFrame {
             i++;
         }
         ArrayList<String> collection = new ArrayList<>();
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 tabSports,
                 new String[]{
                         "Sport", "Prix"
                 }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         jComboSport.setModel(new javax.swing.DefaultComboBoxModel<>(listeSports));
@@ -87,7 +83,6 @@ public class VueSport extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Supprimer");
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel2.setText("Offres Sport");
@@ -104,16 +99,11 @@ public class VueSport extends javax.swing.JFrame {
                                 .addContainerGap(123, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(67, 67, 67)
-                                                .addComponent(jButton2)
-                                                .addGap(132, 132, 132))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(192, 192, 192))))
-        );
+                                .addComponent(jButton2)
+                                .addGap(132, 132, 132))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(192, 192, 192)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -124,9 +114,7 @@ public class VueSport extends javax.swing.JFrame {
                                 .addGap(49, 49, 49)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton2)
-                                        .addComponent(jButton1))
+                                .addComponent(jButton2)
                                 .addGap(86, 86, 86))
         );
 
@@ -184,7 +172,6 @@ public class VueSport extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboSport;
     private javax.swing.JLabel jLabel2;

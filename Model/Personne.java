@@ -5,8 +5,6 @@
  */
 package Model;
 
-import Controleurs.Controleur;
-
 public class Personne {
     private String nom;
     private String prenom;
@@ -17,7 +15,7 @@ public class Personne {
     private String niveau;
     private String mdp;
     private float quotientF;
-
+    private int nbEnfant;
 
 
     public Personne(String nom, String prenom, String adresse, String adresse_mail, String tel, String prenom_eleve,
@@ -30,7 +28,10 @@ public class Personne {
         this.prenom_eleve = prenom_eleve;
         this.niveau = niveau;
         this.mdp = mdp;
-        this.quotientF = Model.Mairie.simulationFamille();
+        float[] temporaire = Model.Mairie.simulationFamille();
+        this.quotientF = temporaire[0];
+        this.nbEnfant = (int) temporaire[1];
+
     }
 
     public String getNom() {
@@ -100,4 +101,10 @@ public class Personne {
     public float getQuotientF() {
         return quotientF;
     }
+
+    public int getNbEnfant() {
+        return nbEnfant;
+    }
+
+
 }

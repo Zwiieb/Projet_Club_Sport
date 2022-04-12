@@ -7,12 +7,8 @@ package Model;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Vector;
-
-import Model.Personne;
 
 /**
- *
  * @author wsi
  */
 
@@ -26,8 +22,9 @@ public class Accueil {
         new Sport("Fitness", 20, " ProfF");
         new Sport("FootBall", 10, " ProfN");
         new Sport("Musculation", 30, " ProfM");
-        Personne pers =  new Personne("a","a","a","a","a","a","a","a")  ;
-                 Mairie.getListPers().add(pers)    ;
+        new Sport("BasketBall", 20, " ProfBa");
+        Personne pers = new Personne("a", "a", "a", "a", "a", "a", "a", "a");
+        Mairie.getListPers().add(pers);
          /*
         for (String listeSports : this.listeSports) {
             String name = listeSports.get(name);

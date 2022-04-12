@@ -5,23 +5,20 @@
  */
 package Vues;
 
-import javax.swing.JOptionPane;
-
 import Controleurs.Controleur;
 
 /**
- *
  * @author wsi
  */
 public class VueLogin extends javax.swing.JFrame {
-	private Controleur controleur;
-   
+    private Controleur controleur;
+
     public VueLogin(Controleur controleur) {
-    	this.controleur = controleur;
-    	this.controleur.getListePages().put("VueLogin",this);
+        this.controleur = controleur;
+        this.controleur.getListePages().put("VueLogin", this);
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -85,14 +82,14 @@ public class VueLogin extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 46, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,11 +100,11 @@ public class VueLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_NomFieldActionPerformed
 
     private void RetourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourButtonActionPerformed
-    	controleur.retourVers(this,"VueAccueil","VueLogin");
+        controleur.retourVers(this, "VueAccueil", "VueLogin");
     }
 
     private void ConfButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	this.controleur.testConnexion(this,NomField.getText(),mdpField.getText());  
+        this.controleur.testConnexion(this, NomField.getText(), mdpField.getText());
     }
 
     public static void main(String args[]) {

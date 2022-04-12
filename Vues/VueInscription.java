@@ -6,24 +6,19 @@
 package Vues;
 
 // imports
-import Model.Personne;
-
-import java.util.Vector;
-
-import javax.swing.JOptionPane;
 
 import Controleurs.Controleur;
 
 public class VueInscription extends javax.swing.JFrame {
-	private Controleur controleur;
-    
+    private Controleur controleur;
+
     public VueInscription(Controleur controleur) {
-    	this.controleur = controleur;
-    	this.controleur.getListePages().put("VueInscription",this);
+        this.controleur = controleur;
+        this.controleur.getListePages().put("VueInscription", this);
         initComponents();
     }
 
-    
+
     @SuppressWarnings("unchecked")
 
     private void initComponents() {
@@ -172,23 +167,23 @@ public class VueInscription extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfButtonActionPerformed
-    	// test si un des champs est vide et lance la fenetre de connexion dans le cas contraire
-    	controleur.Inscription(this,nomField.getText(), preField.getText(), adrField.getText(),adrMField.getText(), telField.getText(),eleField.getText(),nivField1.getText(), mdpField.getText());
- 
+        // test si un des champs est vide et lance la fenetre de connexion dans le cas contraire
+        controleur.Inscription(this, nomField.getText(), preField.getText(), adrField.getText(), adrMField.getText(), telField.getText(), eleField.getText(), nivField1.getText(), mdpField.getText());
+
     }
 
     private void adrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adrFieldActionPerformed
@@ -204,7 +199,7 @@ public class VueInscription extends javax.swing.JFrame {
     }//GEN-LAST:event_telFieldActionPerformed
 
     private void RetourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourButtonActionPerformed
-    	controleur.retourVers(this,"VueAccueil","VueInscription");
+        controleur.retourVers(this, "VueAccueil", "VueInscription");
     }
 
     private void eleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleFieldActionPerformed
