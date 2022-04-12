@@ -16,25 +16,26 @@ import java.util.Locale;
  * @author wsi
  */
 public class Facture {
-    public static float montantTemp;
+    public static Sport SportTemp;
     private float montant;
     private String paiement;
     private Personne personneConnectee;
     private String facture = "";
 
-    public Facture(float montant, String methode, Personne personneConnectee) {
+    public Facture(String methode, Personne personneConnectee) {
         super();
-        this.montant = montant;
         this.paiement = methode;
         this.personneConnectee = personneConnectee;
-
         // ajout de la date
         Date p = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.FRENCH);
-        String resume = dateFormat.format(p) + "\n";
+        String resume = dateFormat.format(p) + "\n \n";
+
+        // ajout du sport
+        this.facture += "Sport: " + Facture.SportTemp.getNom() + "\n";
 
         // ajout du prix
-        this.facture += "Prix: " + this.montant + "\n";
+        this.facture += "Prix: " + Facture.SportTemp.getPrix() / this.personneConnectee.getQuotientF() + "\n";
 
         // ajout du nom
         this.facture += "Mr/Mme: " + this.personneConnectee.getNom() + "\n";

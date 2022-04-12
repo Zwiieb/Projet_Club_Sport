@@ -109,8 +109,7 @@ public class Controleur {
 
         // on entre le prix du sport dans une zone de texte de la page facture
         VueFacture.getMontantField().setText(String.valueOf(sport.getPrix() / this.PersonneConnectee.getQuotientF()));
-        Facture.montantTemp = (sport.getPrix() / this.PersonneConnectee.getQuotientF());
-
+        Facture.SportTemp = sport;
         // rend invisible la fenêtre actuelle et ouvre celle voulue
         VueSport.setVisible(false);
         vue.setVisible(true);
@@ -128,7 +127,7 @@ public class Controleur {
                 methode = "Carte Bancaire";
             else
                 methode = "Espèce";
-            Facture facture = new Facture(Facture.montantTemp, methode, this.PersonneConnectee);
+            Facture facture = new Facture(methode, this.PersonneConnectee);
             facture.Ticket();
 
         } else {

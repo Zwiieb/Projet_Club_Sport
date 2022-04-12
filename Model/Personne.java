@@ -29,8 +29,8 @@ public class Personne {
         this.niveau = niveau;
         this.mdp = mdp;
         float[] temporaire = Model.Mairie.simulationFamille();
-        this.quotientF = temporaire[0];
-        this.nbEnfant = (int) temporaire[1];
+        this.quotientF = temporaire[1];
+        this.nbEnfant = (int) temporaire[0];
 
     }
 

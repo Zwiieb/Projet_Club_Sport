@@ -18,9 +18,11 @@ public class Mairie {
     public static float[] simulationFamille() {
         int couple = (int) (Math.random() * 1);
         int nbEnfants = (int) ((Math.random() * 5));
+
         float[] reponse = new float[2];
         reponse[0] = nbEnfants;
-        if (couple == 0) {
+
+        if (couple < 0) {
             reponse[1] = calculQuotientF(false, nbEnfants);
         } else {
             reponse[1] = calculQuotientF(true, nbEnfants);
