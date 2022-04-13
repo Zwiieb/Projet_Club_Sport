@@ -17,7 +17,6 @@ import java.util.Locale;
  */
 public class Facture {
     public static Sport SportTemp;
-    private float montant;
     private String paiement;
     private Personne personneConnectee;
     private String facture = "";
@@ -26,6 +25,7 @@ public class Facture {
         super();
         this.paiement = methode;
         this.personneConnectee = personneConnectee;
+
         // ajout de la date
         Date p = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.FRENCH);
@@ -52,27 +52,6 @@ public class Facture {
 
     public void Ticket() {
         JOptionPane.showMessageDialog(null, this.facture, "Facture", JOptionPane.PLAIN_MESSAGE);
-    }
-
-    public float getMontant() {
-        return montant;
-    }
-
-    public String getPaiement() {
-        return paiement;
-    }
-
-    public void setPaiement(String paiement) {
-        this.paiement = paiement;
-    }
-
-    public Facture(String paiement) {
-        super();
-        this.paiement = paiement;
-    }
-
-    public void setMontant(int montant) {
-        this.montant = montant;
     }
 
 

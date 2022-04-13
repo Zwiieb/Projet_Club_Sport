@@ -118,7 +118,7 @@ public class Controleur {
     }
 
 
-    public void payer(VueFacture vueFacture) {
+    public void payer() {
 
 
         if (VueFacture.getjRadioButton3().isSelected() || VueFacture.getjRadioButton4().isSelected()) {
@@ -135,7 +135,4 @@ public class Controleur {
         }
     }
 
-    public Mairie getMairie() {
-        return mairie;
-    }
 }

@@ -17,7 +17,7 @@ public class Mairie {
 
     public static float[] simulationFamille() {
         int couple = (int) (Math.random() * 1);
-        int nbEnfants = (int) ((Math.random() * 5));
+        int nbEnfants = (int) ((Math.random() * 4)+1);
 
         float[] reponse = new float[2];
         reponse[0] = nbEnfants;
@@ -50,6 +50,5 @@ public class Mairie {
     public static Vector<Personne> getListPers() {
         return listPers;
     }
-
 
 }

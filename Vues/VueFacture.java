@@ -161,7 +161,7 @@ public class VueFacture extends javax.swing.JFrame {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        controleur.payer(this);
+        controleur.payer();
     }
 
 

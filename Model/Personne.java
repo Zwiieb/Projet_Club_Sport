@@ -38,64 +38,8 @@ public class Personne {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getAdresse_mail() {
-        return adresse_mail;
-    }
-
-    public void setAdresse_mail(String adresse_mail) {
-        this.adresse_mail = adresse_mail;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public String getPrenom_eleve() {
-        return prenom_eleve;
-    }
-
-    public void setPrenom_eleve(String prenom_eleve) {
-        this.prenom_eleve = prenom_eleve;
-    }
-
-    public String getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(String niveau) {
-        this.niveau = niveau;
-    }
-
     public String getMdp() {
         return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
     }
 
     public float getQuotientF() {

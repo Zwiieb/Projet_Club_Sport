@@ -23,6 +23,7 @@ public class Accueil {
         new Sport("FootBall", 10, " ProfN");
         new Sport("Musculation", 30, " ProfM");
         new Sport("BasketBall", 20, " ProfBa");
+        //new Sport("Boxe", 20, " ProfBo");
         Personne pers = new Personne("a", "a", "a", "a", "a", "a", "a", "a");
         Mairie.getListPers().add(pers);
          /*
